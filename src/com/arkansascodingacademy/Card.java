@@ -40,32 +40,51 @@ public class Card
         square[4][4] = new Square(75);
     }
 
-    public boolean bingo()
+    private boolean bingoByColumn()
     {
         boolean bingo = false;
-        //Check for row
-        for (int row = 0; row < 5; row++)
-        {
-            if (square[row][0].isCovered() &&
-                square[row][1].isCovered() &&
-                square[row][2].isCovered() &&
-                square[row][3].isCovered() &&
-                square[row][4].isCovered())
-                {
-                    bingo = true;
-                }
-        }
-        //Check for column
+
         for (int column = 0; column < 5; column++)
         {
             if (square[0][column].isCovered() &&
-                square[1][column].isCovered() &&
-                square[2][column].isCovered() &&
-                square[3][column].isCovered() &&
-                square[4][column].isCovered())
+                    square[1][column].isCovered() &&
+                    square[2][column].isCovered() &&
+                    square[3][column].isCovered() &&
+                    square[4][column].isCovered())
             {
                 bingo = true;
             }
+        }
+
+        return bingo;
+    }
+
+    private boolean bingoByRow()
+    {
+        boolean bingo = false;
+
+        for (int row = 0; row < 5; row++)
+        {
+            if (square[row][0].isCovered() &&
+                    square[row][1].isCovered() &&
+                    square[row][2].isCovered() &&
+                    square[row][3].isCovered() &&
+                    square[row][4].isCovered())
+            {
+                bingo = true;
+            }
+        }
+
+        return bingo;
+    }
+
+    public boolean bingo()
+    {
+        boolean bingo = false;
+
+        if (bingoByColumn() || bingoByRow())
+        {
+            bingo = true;
         }
 
         return bingo;
