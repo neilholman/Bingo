@@ -78,11 +78,42 @@ public class Card
         return bingo;
     }
 
+    private boolean bingoByDiagonal()
+    {
+        boolean bingo = false;
+
+        if ((square[0][0].isCovered() &&
+             square[1][1].isCovered() &&
+             square[2][2].isCovered() &&
+             square[3][3].isCovered() &&
+             square[4][4].isCovered()) ||
+            (square[4][0].isCovered() &&
+             square[3][1].isCovered() &&
+             square[2][2].isCovered() &&
+             square[1][3].isCovered() &&
+             square[0][4].isCovered()))
+
+        {
+            bingo = true;
+        }
+
+        return bingo;
+    }
+
+    private boolean bingoByStamp()
+    {
+        boolean bingo = false;
+
+        //TODO Code this test
+
+        return bingo;
+    }
+
     public boolean bingo()
     {
         boolean bingo = false;
 
-        if (bingoByColumn() || bingoByRow())
+        if (bingoByColumn() || bingoByRow() || bingoByDiagonal() || bingoByStamp())
         {
             bingo = true;
         }
