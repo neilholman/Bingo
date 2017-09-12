@@ -3,13 +3,13 @@ package com.arkansascodingacademy;
 public class Game
 {
     private Numbers numbers;
-    private Card card;
+    private RandomCard card;
 
 
     public Game()
     {
-        numbers = new Numbers();
-        card = new Card();
+        numbers = new Numbers(1, 75);
+        card = new RandomCard();
     }
 
     public boolean play()
